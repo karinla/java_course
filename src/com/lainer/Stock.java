@@ -12,6 +12,14 @@ public class Stock {
 	private float bid;
 	private java.util.Date date;
 	
+	private int recommendation;
+	private int stockQuantity;
+	
+	private static final int BUY = 0;
+	private static final int SELL = 1;
+	private static final int REMOVE = 2;
+	private static final int HOLD = 3;
+	
 	private SimpleDateFormat fd = new SimpleDateFormat("dd/MM/yyyy");
 
 
@@ -20,6 +28,9 @@ public class Stock {
 		this.bid = bid;
 		this.ask = ask;
 		this.date = date;
+		this.recommendation = 0;
+		this.stockQuantity = 0;
+		
 	}
 	
 	
@@ -63,6 +74,19 @@ public class Stock {
 			this.fd = fd;
 		}
 		
+		public int getRecommendation() {
+			return recommendation;
+		}
+		public void setRecommendation(int recommendation) {
+			this.recommendation = recommendation;
+		}
+		public int getStockQuantity() {
+			return stockQuantity;
+		}
+		public void setStockQuantity(int stockQuantity) {
+			this.stockQuantity = stockQuantity;
+		}
+
 		public String getHtmlDescription(){
 			
 			return "<br><b>Stock symbol: </b>"+this.getSymbol()+" <b>ask: </b>"+this.getAsk()+"<b> bid: </b>"+this.getBid()+
