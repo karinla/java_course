@@ -6,12 +6,16 @@ import java.util.Date;
 import com.lainer.*;
 import com.lainer.model.*;
 
+/*
+ * class that shows a portfolio manager
+ * we use this class to excute diffrent things on the portfolio
+ */
+
 public class PortfolioManager {
 
 	public Portfolio getPortfolio(){
 	
-		Portfolio portfolio = new Portfolio();
-		portfolio.setTitle("Show Portfolio Ex.5");
+		Portfolio portfolio = new Portfolio("portfolio");
 		
 		Calendar cal = Calendar.getInstance();
 		cal.set(2014,10,15);
