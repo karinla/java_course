@@ -1,8 +1,7 @@
 package com.lainer.model;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.text.*;
+import java.util.*;
+import com.lainer.model.Portfolio.ALGO_RECOMMENDATION;
 
 /*
  * class that shows stock of Stocks
@@ -14,15 +13,11 @@ public class Stock {
 	private String symbol;
 	private float ask;
 	private float bid;
+	private ALGO_RECOMMENDATION recommendation;
 	private java.util.Date date;
 	
-	private int recommendation;
 	private int stockQuantity;
 	
-	private static final int BUY = 0;
-	private static final int SELL = 1;
-	private static final int REMOVE = 2;
-	private static final int HOLD = 3;
 	private SimpleDateFormat fd = new SimpleDateFormat("dd/MM/yyyy");
 
 /*
@@ -34,7 +29,7 @@ public class Stock {
 		this.bid = newBid;
 		this.ask = newAsk;
 		this.date = newDate;
-		this.recommendation = 0;
+		this.recommendation = ALGO_RECOMMENDATION.HOLD;
 		this.stockQuantity = 0;
 		
 	}
@@ -49,6 +44,13 @@ public class Stock {
 		this(oldStock.getSymbol(),oldStock.getBid(),oldStock.getAsk(),new Date(oldStock.getDate().getTime()));
 		this.recommendation = oldStock.getRecommendation();
 		this.stockQuantity = oldStock.getStockQuantity();
+	}
+	
+	public ALGO_RECOMMENDATION getRecommendation() {
+		return recommendation;
+	}
+	public void setRecommendation(ALGO_RECOMMENDATION recommendation) {
+		this.recommendation = recommendation;
 	}
 	
 		public String getSymbol() {
@@ -91,12 +93,6 @@ public class Stock {
 			this.fd = fd;
 		}
 		
-		public int getRecommendation() {
-			return recommendation;
-		}
-		public void setRecommendation(int recommendation) {
-			this.recommendation = recommendation;
-		}
 		public int getStockQuantity() {
 			return stockQuantity;
 		}

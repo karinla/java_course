@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.lainer.model.Stock;
+
 import java.util.*;
 
 @SuppressWarnings("serial")
